@@ -1,0 +1,32 @@
+#define the configuration file version
+#do represents a CHUNK of code starting with do and ending 
+#with end 
+Vagrant.configure("2") do |config|
+  #Server machine
+  config.vm.define "hcharefs" do |sconfig|
+    sconfig.vm.box = "ubuntu/focal64"
+#configure memory and cpu
+    sconfig.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 2
+    end
+    sconfig.vm.hostname = "hcharefS"
+    sconfig.vm.network "private_network", ip: "192.168.56.110"
+    sconfig.vm.provision "shell", path: "scripts/Server.sh"
+
+    
+  end
+  #Client machine
+  config.vm.define "hcharefsw" do |cconfig|
+    cconfig.vm.box = "ubuntu/focal64"
+    cconfig.vm.provider "virtualbox" do |v|
+      v.memory = 512
+      v.cpus = 1
+    end
+    cconfig.vm.hostname = "hcharefSW"
+    cconfig.vm.network "private_network", ip: "192.168.56.111"
+    cconfig.vm.provision "shell", path: "scripts/Client.sh"
+
+  end
+
+end

@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+
+# type of k3s object
+kind: Deployment
+
+# description of the object
+metadata:
+  name: app2
+  #A namespace is a logical partition within a Kubernetes cluster. It allows you to group related resources nd isolate them from others.
+  namespace: default
+
+  # Labels are key-value pairs used to identify, organize, and categorize Kubernetes objects, making them easy to filter and select.
+  labels:
+    app: app2
+
+spec:
+  replicas: 3
+
+  strategy:
+    type: Recreate
+
+  # Selectors are used to filter and identify Kubernetes objects based on their labels, enabling relationships and targeting between resources.
+  selector:
+    # matchLabels select objects with the exact label's key/value
+    matchLabels:
+      app: app2
+
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable
+          # tell Kubernetes to do that connection
+          volumeMounts:
+            - name: app2-volume
+              # where the volume is mounted
+              mountPath: /usr/share/nginx/html
+          ports:
+            - containerPort: 80
+            
+   # Create a volume from a ConfigMap; when the container starts, the ConfigMap data is mounted to the volumeMount path
+
+      volumes:
+        - name: app2-volume
+          configMap:
+            # name of the ConfigMap containing the HTML file
+            name: app2-html
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2-service
+spec:
+  selector:
+    app : app2
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+      nodePort: 30041
+  type: NodePort
+

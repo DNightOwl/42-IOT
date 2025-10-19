@@ -1,0 +1,123 @@
+
+#configmap is a key / value map that stores data that can be used as a mounted files in a volumes
+
+# here we are creating a configMap object to create the html file for the applications and then mount it 
+
+#to the volumes 
+
+
+
+
+
+
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app1-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inception of things</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background-image: url('https://media.istockphoto.com/id/1061642336/vector/panda-vector-print-baby-shower-card.jpg?s=2048x2048&w=is&k=20&c=JXD2oKsoSMFJcTr7yi11zMD_wv3SLSqpyDBPhhsw4kc=');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat; 
+            }
+
+            p {
+                color: blueviolet;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.6); 
+                display: inline-block;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello From App 1</p>
+    </body>
+    </html>
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app2-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inception of things</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background-image: url('https://media.istockphoto.com/id/1061642336/vector/panda-vector-print-baby-shower-card.jpg?s=2048x2048&w=is&k=20&c=JXD2oKsoSMFJcTr7yi11zMD_wv3SLSqpyDBPhhsw4kc=');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat; 
+            }
+
+            p {
+                color: blueviolet;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.6); 
+                display: inline-block;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello From App 2</p>
+    </body>
+    </html>
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app3-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inception of things</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background-image: url('https://media.istockphoto.com/id/1061642336/vector/panda-vector-print-baby-shower-card.jpg?s=2048x2048&w=is&k=20&c=JXD2oKsoSMFJcTr7yi11zMD_wv3SLSqpyDBPhhsw4kc=');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            p {
+                color: blueviolet;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.6);
+                display: inline-block;
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Hello From App 3</p>
+    </body>
+    </html>
+
+
