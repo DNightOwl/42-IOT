@@ -5,6 +5,8 @@ metadata:
   namespace: dev
   labels:
     app: wil42-v1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   replicas: 1
   selector:
@@ -17,7 +19,7 @@ spec:
     spec:
       containers:
       - name: wil42-v1
-        image: wil42/playground:v2
+        image: wil42/playground:v1
         ports:
         - containerPort: 8888
 ---
@@ -26,6 +28,8 @@ kind: Service
 metadata:
   name: wil42-v1-service
   namespace: dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   type: NodePort
   selector:
