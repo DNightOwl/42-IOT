@@ -5,9 +5,10 @@ metadata:
   namespace: dev
   labels:
     app: wil42-v1
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "1"
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: wil42-v1
@@ -27,8 +28,8 @@ kind: Service
 metadata:
   name: wil42-v1-service
   namespace: dev
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "0"
 spec:
   type: NodePort
   selector:
