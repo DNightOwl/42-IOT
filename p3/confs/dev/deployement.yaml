@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: wil42-v1
-        image: wil42/playground:v1
+        image: wil42/playground:v2
         ports:
         - containerPort: 8888
 ---
@@ -39,3 +39,4 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 8888
+      nodePort: 30003
