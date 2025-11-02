@@ -1,0 +1,14 @@
+global:
+  hosts:
+    domain: local.io
+  ingress:
+    configureCertmanager: false
+gitlab:
+  gitlab-exporter:
+    enabled: false
+nginx-ingress:
+  enabled: true
+certmanager:
+  enabled: false
+
+
