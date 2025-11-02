@@ -33,6 +33,6 @@ spec:
   selector:
     app: wil42-v1
   ports:
-    - name: http
+    - protocol: TCP
       port: 8888
       targetPort: 8888
