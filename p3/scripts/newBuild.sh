@@ -18,10 +18,10 @@ while true; do
 done
 
 nohup kubectl port-forward -n argocd svc/argocd-server 8080:443 > /dev/null 2>&1 &
-
+#kubectl port-forward -n argocd svc/argocd-server 8080:443 &
 # Continue with other commands
 echo "Port forwarding running in the background."
-kubectl port-forward -n argocd svc/argocd-server 8080:443 > /dev/null 2>&1
+#kubectl port-forward -n argocd svc/argocd-server 8080:443 > /dev/null 2>&1
 echo "Port forward exit status: $?"
 ARGO_PASSWORD=$(kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d)
 echo "ARGO_PASSWORD: $ARGO_PASSWORD"
