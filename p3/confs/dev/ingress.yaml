@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: wil42-v1-ingress
   namespace: dev
-  annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
 spec:
   rules:
     - http:
