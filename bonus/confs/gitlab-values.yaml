@@ -1,6 +1,6 @@
 global:
   hosts:
-    domain: local.io
+    domain: localhost
   ingress:
     configureCertmanager: false
 gitlab:
