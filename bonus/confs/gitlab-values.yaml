@@ -1,11 +1,12 @@
 global:
   hosts:
     domain: localhost
+    https: false
   ingress:
     configureCertmanager: false
-gitlab:
-  gitlab-exporter:
-    enabled: false
+    class: nginx
+gitlab-runner:
+  install: false
 nginx-ingress:
   enabled: true
 certmanager:
