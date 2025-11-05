@@ -16,10 +16,10 @@ spec:
         app: wil42-v1
     spec:
       containers:
-      - name: wil42-v1
-        image: wil42/playground:v1
-        ports:
-        - containerPort: 8888
+        - name: wil42-v1
+          image: wil42/playground:v1
+          ports:
+            - containerPort: 8888
 ---
 apiVersion: v1
 kind: Service
