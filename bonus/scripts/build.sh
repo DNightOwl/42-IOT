@@ -81,5 +81,6 @@ echo "	Add your ssh key to your local gitlab account"
 echo "	SSH KEY: "
 sudo cat "$SSH_KEY"
 echo "======================================================"
-
+echo "git@github.com:DNightOwl/laafilal-IOT-config"
+echo "======================================================"
 

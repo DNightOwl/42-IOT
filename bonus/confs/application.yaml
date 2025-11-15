@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/${REPO}.git
+    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/test.git
       targetRevision: HEAD
       path: .
   destination:
