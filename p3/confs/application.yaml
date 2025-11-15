@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/DNightOwl/42-IOT.git
-    targetRevision: part3
-    path: p3/confs/dev
+    repoURL: https://github.com/DNightOwl/laafilal-IOT-config.git
+    targetRevision: HEAD
+    path: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: dev

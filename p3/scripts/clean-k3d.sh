@@ -35,4 +35,3 @@ kubectl config unset users.k3d-iotcluster 2>/dev/null || true
 
 echo "✅ k3d uninstallation completed!"
 
-#TODO cleaning kubctl not sure
