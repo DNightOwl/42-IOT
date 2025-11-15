@@ -26,9 +26,9 @@ helm upgrade --install gitlab gitlab/gitlab -n gitlab -f https://gitlab.com/gitl
 kubectl get secret -n gitlab gitlab-gitlab-initial-root-password -o jsonpath="{.data.password}" | base64 -d && echo
 
 
-nohup kubectl port-forward svc/gitlab-webservice-default -n gitlab 80:8181 > /dev/null 2>&1 &
+nohup kubectl port-forward svc/gitlab-webservice-default -n gitlab 80:8181 --address 0.0.0.0  > /dev/null 2>&1 & #8080:8181
 
-nohup kubectl port-forward -n gitlab svc/gitlab-gitlab-shell 32022:32022 > /dev/null 2>&1 &
+nohup kubectl port-forward -n gitlab svc/gitlab-gitlab-shell 32022:32022 --address 0.0.0.0 > /dev/null 2>&1 &
 
 
 #========>git clone  ssh://git@gitlab.localhost.com:32022/root/laafilal-playground.git

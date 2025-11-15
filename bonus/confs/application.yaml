@@ -6,10 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/DNightOwl/42-IOT.git
-      targetRevision: part3
-      path: p3/confs/dev
-    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/laafilal-playground.git
+    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/${REPO}.git
       targetRevision: HEAD
       path: .
   destination:
