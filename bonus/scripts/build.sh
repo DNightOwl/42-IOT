@@ -6,7 +6,7 @@ kubectl apply -f ../confs/namespaces.yaml
 
 if ! grep -q 'gitlab.localhost.com' /etc/hosts
 then
-	sed -i '1! 127.0.0.1 gitlab.localhost.com' /etc/hosts
+	sudo sed -i '1i 127.0.0.1 gitlab.localhost.com' /etc/hosts
 fi
 
 helm repo add gitlab http://charts.gitlab.io/

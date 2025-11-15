@@ -37,5 +37,3 @@ echo "✅ k3d uninstallation completed!"
 
 helm repo update
 helm repo remove gitlab 
-helm repo list
-helm repo cache clean
