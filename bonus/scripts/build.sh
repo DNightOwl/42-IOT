@@ -26,27 +26,19 @@ while true; do
     echo "All GitLab server pods are running."
     break
   fi
-
-  #echo "Waiting for GitLab server pods to be ready..."
   sleep 5
 done
 
 kubectl wait --for=condition=ready pods  --all -n gitlab --timeout=200s
 
-
 nohup kubectl port-forward svc/gitlab-webservice-default -n gitlab 8080:8181   > /dev/null 2>&1 & 
 
 nohup kubectl port-forward -n gitlab svc/gitlab-gitlab-shell 32022:32022  > /dev/null 2>&1 &
 
-
-
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 sleep 3
-#kubectl rollout restart deployment -n argocd
-
 
 kubectl wait --for=condition=ready pods  --all -n argocd --timeout=300s
-#kubectl wait --for=condition=ready pods -l app.kubernetes.io/name=argocd-server  -n argocd --timeout=180s
 while true; do
   kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server | grep -i "Running" && break
   echo "Waiting for Argo CD server pod to be ready..."
