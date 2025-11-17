@@ -61,11 +61,6 @@ ARGO_PASSWORD=$(kubectl get secret argocd-initial-admin-secret -n argocd -o json
 sleep 3
 argocd login localhost:8081 --username admin --password "$ARGO_PASSWORD" --insecure
 sleep 3
-#kubectl apply -f ../confs/dev/deployement.yaml
-#kubectl apply -f ../confs/ingress.yaml
-#kubectl apply -f ../confs/application.yaml
-
-#kubectl wait --for=condition=ready pods --all -n dev --timeout=300s
 
 SSH_KEY=$(eval echo $HOME/.ssh/id_*.pub)
 echo "======================================================"
