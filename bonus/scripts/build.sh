@@ -67,7 +67,7 @@ sleep 3
 
 #kubectl wait --for=condition=ready pods --all -n dev --timeout=300s
 
-SSH_KEY="$HOME/.ssh/id_rsa.pub"
+SSH_KEY=$(eval echo $HOME/.ssh/id_*.pub)
 echo "======================================================"
 echo "	ARGO_USER: admin"
 echo "	ARGO_PASSWORD: $ARGO_PASSWORD"
