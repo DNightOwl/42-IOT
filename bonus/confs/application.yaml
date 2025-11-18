@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wil42-v1
+  name: wil42-app
   namespace: argocd
 spec:
   project: default
   sources:
-    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/test.git
+    - repoURL: http://gitlab-webservice-default.gitlab.svc:8181/root/${REPO}.git
       targetRevision: HEAD
       path: .
   destination:
